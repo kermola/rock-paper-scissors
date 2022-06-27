@@ -10,18 +10,20 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
-    console.log("Computer chose " + computerSelection);
-    if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
+    const playerSelectionUpperCased = playerSelection.replace(/(^\w)/g, m => m.toUpperCase());
+    const computerSelectionUpperCased = computerSelection.replace(/(^\w)/g, m => m.toUpperCase());
+    console.log("Computer chose " + computerSelectionUpperCased);
+    if (playerSelection == computerSelection) {
         return ("Draw! You both chose the same thing");
     }
     else if ((playerSelection == "rock" && computerSelection =="scissors") ||
             (playerSelection == "paper" && computerSelection == "rock") ||
             (playerSelection == "scissors" && computerSelection == "paper")) {
-        const playerSelectionUpperCased = playerSelection.replace(/(^\w)/g, m => m.toUpperCase());
-        const computerSelectionUpperCased = computerSelection.replace(/(^\w)/g, m => m.toUpperCase());
         return ("You win! " + playerSelectionUpperCased + " beats " + computerSelectionUpperCased + ".");
         }
     else {
-        return ("Not yet coded!");
+        return ("You lose! " + computerSelectionUpperCased + " beats " + playerSelectionUpperCased);
     }
 }
