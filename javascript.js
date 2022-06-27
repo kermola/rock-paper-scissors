@@ -34,7 +34,7 @@ function playRound(playerSelection, computerSelection) {
             }
         else {
             computerWinRound();
-            return ("You lose! " + computerSelectionUpperCased + " beats " + playerSelectionUpperCased);
+            return ("You lose! " + computerSelectionUpperCased + " beats " + playerSelectionUpperCased + ".");
         }
     }
     else {
